@@ -27,7 +27,7 @@ class MongoDBHandler(logging.Handler):
 
 # Load configurations
 MONGO_CONNECTION_STRING = os.getenv("MONGO_CONNECTION_STRING", "mongodb+srv://edwindavid:david10edwin@mycluster1.6h2do5g.mongodb.net/?retryWrites=true&w=majority")
-SPARK_MASTER = os.getenv("SPARK_MASTER", "spark://0.0.0.0:7077")
+SPARK_MASTER = os.getenv("spark://172.31.38.88:7077", "spark://0.0.0.0:7077")
 MAX_RETRIES = 3
 
 # Configure logging
