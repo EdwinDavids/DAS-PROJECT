@@ -148,8 +148,8 @@ def on_server_shutdown():
     logging.info("Streamlit server is shutting down")
     logging.info('SERVER IS DOWN')
 
-#def notify_status():
-    logging.#info("Server is running and monitoring tasks")
+def notify_status():
+    logging.info("Server is running and monitoring tasks")
 
 def main():
     st.markdown(
@@ -166,8 +166,8 @@ def main():
         st.warning("Please save your work regularly. The server may shut down without warning.")
         st.info("In case of a server shutdown, you may lose unsaved work. We apologize for any inconvenience.")
 
-    #scheduler.add_job(notify_status, 'interval', minutes=10)
-    #scheduler.start()
+    scheduler.add_job(notify_status, 'interval', minutes=10)
+    scheduler.start()
 
     st.sidebar.title("TASK MANAGEMENT")
 
