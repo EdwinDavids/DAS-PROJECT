@@ -27,7 +27,7 @@ class MongoDBHandler(logging.Handler):
 
 # Load configurations
 MONGO_CONNECTION_STRING = os.getenv("mongodb+srv://edwindavid:david10edwin@mycluster1.6h2do5g.mongodb.net/?retryWrites=true&w=majority", "mongodb+srv://edwindavid:david10edwin@mycluster1.6h2do5g.mongodb.net/?retryWrites=true&w=majority")
-SPARK_MASTER = os.getenv("spark://172.31.38.88:7077", "spark://0.0.0.0:7077")
+SPARK_MASTER = os.getenv("spark://ip-172-31-15-228.ap-south-1.compute.internal:7077", "spark://0.0.0.0:7077")
 MAX_RETRIES = 3
 
 # Configure logging
@@ -148,8 +148,8 @@ def on_server_shutdown():
     logging.info("Streamlit server is shutting down")
     logging.info('SERVER IS DOWN')
 
-def notify_status():
-    logging.info("Server is running and monitoring tasks")
+#def notify_status():
+    logging.#info("Server is running and monitoring tasks")
 
 def main():
     st.markdown(
@@ -166,8 +166,8 @@ def main():
         st.warning("Please save your work regularly. The server may shut down without warning.")
         st.info("In case of a server shutdown, you may lose unsaved work. We apologize for any inconvenience.")
 
-    scheduler.add_job(notify_status, 'interval', minutes=10)
-    scheduler.start()
+    #scheduler.add_job(notify_status, 'interval', minutes=10)
+    #scheduler.start()
 
     st.sidebar.title("TASK MANAGEMENT")
 
