@@ -25,8 +25,8 @@ def process_data_with_rdd(input_path, output_path):
 
 # Usage example
 if __name__ == "__main__":
-    input_path = "/home/edwindavid/PycharmProjects/newhive/Sparkprojects/Intership/input.csv"
-    output_path = "/home/edwindavid/PycharmProjects/newhive/Sparkprojects/Intership/output.csv"
+    input_path = "/home/ubuntu/DAS-PROJECT/input.csv"
+    output_path = "/home/ubuntu/DAS-PROJECT/output.csv"
     process_data_with_rdd(input_path, output_path)
 
 # a=5
