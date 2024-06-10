@@ -1,0 +1,58 @@
+Setuping spark configurations
+
+	sudo apt update
+	sudo apt install openjdk-11-jdk -y
+	wget https://downloads.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
+	tar -xvf spark-3.5.1-bin-hadoop3.tgz
+	
+	
+setting up env varibales 
+
+	echo 'export SPARK_HOME=spark-3.5.1-bin-hadoop3' >> ~/.bashrc
+	echo 'export PATH=$SPARK_HOME/bin:$PATH' >> ~/.bashrc
+	echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> ~/.bashrc
+	source ~/.bashrc
+	
+git cloning
+	sudo apt update
+	sudo apt install python3-pip -y
+	git clone https://github.com/EdwinDavids/DAS-PROJECT.git
+	cd DAS-PROJECT/
+	sudo pip install --break-system-packages -r requirements.txt
+	
+
+
+#
+http://3.110.196.135:8080/ #to access spark job ui
+$SPARK_HOME/sbin/start-master.sh
+
+
+git pull origin your_branch_name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##########################################
+To stop the running Streamlit application
+*find the PID of the running Streamlit application using:
+	>>ps aux | grep streamlit
+*Stop the Streamlit Process:
+	>>kill 12345(PID)
+	>>kill -9 12345(to force kill)
+
