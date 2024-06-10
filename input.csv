@@ -5,34 +5,3 @@ Charlie,40,Marketing,75000
 David,32,Engineering,85000
 Eve,29,HR,70000
 Edwin,52,ANALYST,450000
-def run_spark_job(spark_master, recipe_id, script_path, retry_count=0, error_container=None):
-    try:
-        logging.info(f"Running Spark job for recipe_id: {recipe_id} using script: {script_path}")
-
-        # Execute the external script using subprocess
-        result = subprocess.run(["spark-submit", "--master", spark_master, script_path], capture_output=True, text=True)
-
-        if result.returncode == 0:
-            logging.info("Spark job execution successful")
-            update_task_status(recipe_id, "success", retry_count)
-        else:
-            raise Exception(result.stderr)
-
-    except Exception as e:
-        logging.error(f"Error running Spark job for recipe_id {recipe_id}: {e}")
-        if "Job cancelled because SparkSession was shut down" in str(e):
-            logging.error(
-                f"SparkSession was shut down for recipe_id {recipe_id}. Ensure Spark cluster is running and resources are sufficient.")
-        if retry_count < MAX_RETRIES:
-            retry_count += 1
-            logging.info(f"Retrying task {recipe_id}, attempt {retry_count}")
-            run_spark_job(spark_master, recipe_id, script_path, retry_count, error_container)
-        else:
-            update_task_status(recipe_id, "failed", retry_count)
-            save_failed_task(recipe_id, script_path)
-            logging.error(f"Task {recipe_id} failed after {MAX_RETRIES} retries. Stopping periodic job.")
-            scheduler.remove_job(f"{recipe_id}_job")
-            if error_container:
-                error_container.error(
-                    f"Task '{recipe_id}' failed execution after {MAX_RETRIES} retries. Please check the log for errors.")
-        raise
