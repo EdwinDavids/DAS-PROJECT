@@ -60,7 +60,7 @@ def main():
     df_sorted.show()
 
     # Save the final dataframe to a CSV file
-    output_path = "/home/edwindavid/PycharmProjects/newhive/Sparkprojects/Intership/spark_job1_oot.csv"
+    output_path = "/home/ubuntu/DAS-PROJECT/spark_job1_oUt.csv"
     df_sorted.write.csv(output_path, header=True)
     print(f"Output written to: {output_path}")
 
