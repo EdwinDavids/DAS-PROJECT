@@ -27,13 +27,13 @@ class MongoDBHandler(logging.Handler):
         self.collection.insert_one(log_data)
 
 # Load configurations
-MONGO_CONNECTION_STRING = os.getenv("mongodb+srv://edwindavid:david10edwin@mycluster1.6h2do5g.mongodb.net/?retryWrites=true&w=majority", "mongodb+srv://edwindavid:david10edwin@mycluster1.6h2do5g.mongodb.net/?retryWrites=true&w=majority")
+MONGO_CONNECTION_STRING = os.getenv("mongodb+srv://freego:freego%2322Monkey@freego-c0.y47x2e3.mongodb.net/", "mongodb+srv://freego:freego%2322Monkey@freego-c0.y47x2e3.mongodb.net/")
 SPARK_MASTER = os.getenv("spark://ip-172-31-9-53.ap-south-1.compute.internal:7077", "spark://0.0.0.0:7077")
 MAX_RETRIES = 3
 
 # Configure logging
-LOG_DATABASE_NAME = "sparkproject"
-LOG_COLLECTION_NAME = "logs"
+LOG_DATABASE_NAME = "das_database"
+LOG_COLLECTION_NAME = "das_logs"
 
 # Create MongoDB logging handler
 mongo_handler = MongoDBHandler(MONGO_CONNECTION_STRING, LOG_DATABASE_NAME, LOG_COLLECTION_NAME)
@@ -52,7 +52,7 @@ scheduler = BackgroundScheduler()
 def connect_to_mongodb(connection_string):
     try:
         client = MongoClient(connection_string)
-        database = client["sparkproject"]
+        database = client["das_database"]
         task_collection = database["task"]
         failed_task_collection = database["failed_tasks"]
         logging.info("Connected to MongoDB Atlas")
