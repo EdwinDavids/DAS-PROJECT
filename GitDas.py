@@ -285,17 +285,6 @@ def main():
 
     atexit.register(on_server_shutdown)
 
-
-# import os
-import time
-# import datetime
-
-os.environ['TZ'] = 'Asia/Kolkata'
-time.tzset()
-
-# print("Current time:", datetime.datetime.now())
-# print("Timezone:", time.tzname)
-
 if __name__ == "__main__":
         main()
 
