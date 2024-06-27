@@ -6,7 +6,7 @@ from pyspark.sql.functions import explode, split, count
 
 # Create a SparkSession
 spark = SparkSession.builder\
-    .appName("WordCount")\
+    .appName("DemoSparkJob1")\
     .getOrCreate()
 
 # Read the text file into a DataFrame
