@@ -4,7 +4,7 @@ from pyspark.sql.window import Window
 
 # Initialize Spark session
 spark = SparkSession.builder \
-    .appName("ComplexSparkJob") \
+    .appName("DemoSparkJob2") \
     .getOrCreate()
 
 # Sample data for testing
