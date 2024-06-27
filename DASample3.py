@@ -4,7 +4,7 @@ import csv
 
 def process_data_with_rdd(input_path, output_path):
     # Initialize Spark session
-    spark = SparkSession.builder.appName("RDDProcessing").getOrCreate()
+    spark = SparkSession.builder.appName("DemoSparkJob3").getOrCreate()
 
     try:
         # Read CSV file into DataFrame
